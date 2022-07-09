@@ -1,9 +1,9 @@
 const { document } = require("./jsdom_setup.js");
 const { DOMEvents } = require("../src/jam_buddy_dom_manipulation.js");
 
-describe("The displayNotes method of the JamBuddy class", () => {
+describe("The displayNewNotes method of the JamBuddy class", () => {
   it("should display notes to the browser by modifying the default copy", () => {
-    DOMEvents.displayNotes();
+    DOMEvents.displayNewNotes();
     expect(document.querySelector(".first-note").textContent).not.toBe(
       "First Note"
     );

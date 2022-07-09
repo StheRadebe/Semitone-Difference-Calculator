@@ -2,7 +2,7 @@ const { JamBuddy } = require("./jam_buddy_class.js");
 const buddy = new JamBuddy();
 
 const DOMEvents = {
-  displayNotes() {
+  displayNewNotes() {
     const notes = buddy.selectNotes();
     document.querySelector(".first-note").textContent = notes[0];
     document.querySelector(".second-note").textContent = notes[1];
@@ -13,7 +13,7 @@ const DOMEvents = {
     document
       .querySelector(".generate-notes-button")
       .addEventListener("click", function () {
-        DOMEvents.displayNotes();
+        DOMEvents.displayNewNotes();
         document.querySelector(".input").value = "";
         document.querySelector(".validation").textContent = "";
       });
@@ -26,6 +26,7 @@ const DOMEvents = {
     ) {
       console.log("MET");
       buddy.streak++;
+      DOMEvents.displayNewNotes();
     } else {
       console.log("not met");
       buddy.streak = 0;
@@ -56,7 +57,7 @@ const DOMEvents = {
   },
 };
 
-DOMEvents.displayNotes();
+DOMEvents.displayNewNotes();
 DOMEvents.generateNewNotes();
 DOMEvents.validateInput();
 
