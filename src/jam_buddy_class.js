@@ -15,6 +15,7 @@ class JamBuddy {
       "G",
       ["G#", "Ab"],
     ];
+    this.streak = 0;
   }
 
   randomNoteSelector(arrayInput) {

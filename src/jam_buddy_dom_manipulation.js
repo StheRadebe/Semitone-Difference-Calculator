@@ -19,6 +19,20 @@ const DOMEvents = {
       });
   },
 
+  streakCounter() {
+    if (
+      document.querySelector(".validation").textContent ===
+      "You got it right. Well Done!"
+    ) {
+      console.log("MET");
+      buddy.streak++;
+    } else {
+      console.log("not met");
+      buddy.streak = 0;
+    }
+    document.querySelector(".streak").textContent = `Streak: ${buddy.streak}`;
+  },
+
   validateInput() {
     document
       .querySelector(".submit-button")
@@ -33,13 +47,16 @@ const DOMEvents = {
           document.querySelector(".validation").textContent =
             "You got it right. Well Done!";
         } else {
+          buddy.streak = 0;
           document.querySelector(".validation").textContent =
             "Wrong answer! Try again";
         }
+        DOMEvents.streakCounter();
       });
   },
 };
 
+DOMEvents.displayNotes();
 DOMEvents.generateNewNotes();
 DOMEvents.validateInput();
 
